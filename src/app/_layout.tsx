@@ -1,15 +1,29 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import { useColorScheme } from 'react-native';
+import { Tabs } from "expo-router";
+import React from "react";
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+export default function Layout() {
+  return React.createElement(
+    Tabs,
+    null,
+    React.createElement(Tabs.Screen, {
+      name: "index",
+      options: { title: "Welcome" },
+    }),
+    React.createElement(Tabs.Screen, {
+      name: "profile",
+      options: { title: "Profile" },
+    }),
+    React.createElement(Tabs.Screen, {
+      name: "fetch-data",
+      options: { title: "Fetch API" },
+    }),
+    React.createElement(Tabs.Screen, {
+      name: "users",
+      options: { title: "Users" },
+    }),
+    React.createElement(Tabs.Screen, {
+      name: "map",
+      options: { title: "Map" },
+    })
   );
 }
